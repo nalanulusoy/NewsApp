@@ -31,13 +31,9 @@ abstract class BaseFragment<VM : BaseAndroidViewModel> :
             .get(persistentViewModelClass)
     }
 
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-
     }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
