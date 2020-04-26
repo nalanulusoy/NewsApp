@@ -2,7 +2,7 @@ package com.example.newsapp
 
 
 import android.os.Bundle
-import com.example.newsapp.feature.home.HomeFragment
+import com.example.newsapp.features.HomeFragment
 
 import dagger.android.support.DaggerAppCompatActivity
 
@@ -19,6 +19,6 @@ class MainActivity : DaggerAppCompatActivity() {
 
 
     fun openHomeFragment(){
-        fragmentManager.beginTransaction().replace(R.id.home_fragment,HomeFragment()).commit()
+        fragmentManager.beginTransaction().replace(R.id.home_fragment, HomeFragment()).commit()
     }
 }
