@@ -2,9 +2,10 @@ package com.example.newsapp.internal.injection.module
 
 import android.app.Application
 import android.content.Context
+import com.example.newsapp.internal.injection.DaggerApplication
 import dagger.Module
 import dagger.Provides
-import dagger.android.DaggerApplication
+
 import javax.inject.Singleton
 
 @Module

@@ -3,7 +3,7 @@ package com.example.newsapp.internal.injection.module
 import android.content.Context
 import androidx.databinding.library.BuildConfig
 import com.example.newsapp.data.remote.api.TopHeadlinesCountryService
-import com.example.newsapp.data.remote.api.TopHeadlinesService
+import com.example.newsapp.data.remote.api.TopHeadlinesSourcesService
 import com.example.newsapp.data.remote.api.TopHeadlinesWordService
 import com.example.newsapp.internal.util.Constant
 
@@ -88,8 +88,8 @@ internal class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideTopHeadlinesService(retrofit: Retrofit): TopHeadlinesService {
-        return retrofit.create(TopHeadlinesService::class.java)
+    fun provideTopHeadlinesService(retrofit: Retrofit): TopHeadlinesSourcesService {
+        return retrofit.create(TopHeadlinesSourcesService::class.java)
     }
 
     @Provides

@@ -1,8 +1,14 @@
 package com.example.newsapp
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
 
-class MainViewModel :ViewModel()
+import com.example.newsapp.base.BaseAndroidViewModel
+import javax.inject.Inject
+
+class MainViewModel@Inject constructor(application: Application) : BaseAndroidViewModel(application){
+
+
+}
 
 
 

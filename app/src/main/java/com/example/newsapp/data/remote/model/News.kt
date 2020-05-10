@@ -1,4 +1,4 @@
-package com.example.newsapp.data.model
+package com.example.newsapp.data.remote.model
 
 
 
