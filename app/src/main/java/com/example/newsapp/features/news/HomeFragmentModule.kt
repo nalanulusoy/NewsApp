@@ -1,4 +1,4 @@
-package com.example.newsapp.features
+package com.example.newsapp.features.news
 
 import dagger.Module
 

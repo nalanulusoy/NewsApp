@@ -2,8 +2,8 @@ package com.example.newsapp.internal.injection.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.newsapp.MainViewModel
-import com.example.newsapp.features.HomeViewModel
+import com.example.newsapp.features.main.MainViewModel
+import com.example.newsapp.features.news.HomeViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

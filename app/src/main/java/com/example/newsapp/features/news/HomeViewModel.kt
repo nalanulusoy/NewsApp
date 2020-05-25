@@ -1,4 +1,4 @@
-package com.example.newsapp.features
+package com.example.newsapp.features.news
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
