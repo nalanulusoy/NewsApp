@@ -9,10 +9,10 @@ import com.example.newsapp.internal.util.Constant
 interface TopHeadlinesSourcesService {
     @GET(Constant.Api.TOP_HEADLİNES)
   suspend  fun getTopHeadlinesSources(@Query(SOURCES) sources: String,
-                               @Query(Constant.Api.API_KEY) apiKey: String): Single<List<News>>
+                               @Query(API_KEY) apiKey: String): News
 
     companion object {
         const val SOURCES = "sources"
-
+        const val API_KEY="apiKey"
     }
 }

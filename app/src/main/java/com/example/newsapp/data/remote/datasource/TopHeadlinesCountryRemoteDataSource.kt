@@ -12,7 +12,10 @@ class TopHeadlinesCountryRemoteDataSource @Inject constructor(
     private val service: TopHeadlinesCountryService
 ) : BaseRemoteDataSource() {
 
-suspend fun TopHeadlinesCountry(country:String,category:String): News =service.getTopHeadlinesCountry(country, category,
-    Constant.Api.API_KEY)
-
+suspend fun TopHeadlinesCountry(country:String,category:String): News =invoke {
+    service.getTopHeadlinesCountry(
+        country, category,
+        Constant.Api.API_KEY
+    )
+}
 }

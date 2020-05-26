@@ -21,7 +21,7 @@ import kotlinx.coroutines.withContext
 abstract class BaseAndroidViewModel(application: Application) : AndroidViewModel(application) {
     private val _failurePopup = MutableLiveData<Event<PopupUiModel>>()
     private val viewModelJob = SupervisorJob()
-    protected val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
+
     protected fun getString(@StringRes resId: Int): String {
         return getApplication<Application>().getString(resId)
     }
@@ -30,11 +30,7 @@ abstract class BaseAndroidViewModel(application: Application) : AndroidViewModel
         return getApplication<Application>().getString(resId, formatArgs)
     }
 
-    protected suspend fun onUIThread(block: suspend CoroutineScope.() -> Unit) {
-        withContext(uiScope.coroutineContext) {
-            block.invoke(this)
-        }
-    }
+    protected val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
     protected val bgScope = CoroutineScope(Dispatchers.Default + viewModelJob)
 
 
@@ -74,5 +70,19 @@ abstract class BaseAndroidViewModel(application: Application) : AndroidViewModel
                 popUpType = PopUpType.ERROR
             )
         )
+    }
+    protected suspend fun <T> onBackgroundThread(block: suspend CoroutineScope.() -> T): T {
+        return withContext(bgScope.coroutineContext) {
+            block.invoke(this)
+        }
+    }
+    protected suspend fun onUIThread(block: suspend CoroutineScope.() -> Unit) {
+        withContext(uiScope.coroutineContext) {
+            block.invoke(this)
+        }
+    }
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
     }
 }

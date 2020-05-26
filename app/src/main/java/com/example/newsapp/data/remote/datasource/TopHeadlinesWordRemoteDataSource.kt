@@ -11,7 +11,7 @@ import javax.inject.Inject
 class TopHeadlinesWordRemoteDataSource@Inject constructor(
 private val sourcesService: TopHeadlinesWordService
 ) : BaseRemoteDataSource() {
-    suspend fun TopHeadlinesWord(query:String): News =sourcesService.getTopHeadlinesWord(query,
-        Constant.Api.API_KEY)
+    suspend fun TopHeadlinesWord(query:String): News =invoke {sourcesService.getTopHeadlinesWord(query,Constant.Api.API_KEY
+       )}
 
 }

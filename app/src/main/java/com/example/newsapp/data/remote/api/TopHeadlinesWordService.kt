@@ -10,10 +10,10 @@ interface TopHeadlinesWordService {
 
     @GET(Constant.Api.TOP_HEADLİNES)
   suspend  fun getTopHeadlinesWord(@Query(QUERY) query: String,
-                            @Query(Constant.Api.API_KEY) apiKey: String): News
+                            @Query(API_KEY) apiKey: String): News
 
     companion object {
         const val QUERY = "q"
-
+        const val API_KEY="apiKey"
     }
 }

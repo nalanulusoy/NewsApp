@@ -6,7 +6,6 @@ import com.example.newsapp.data.remote.api.TopHeadlinesCountryService
 import com.example.newsapp.data.remote.api.TopHeadlinesSourcesService
 import com.example.newsapp.data.remote.api.TopHeadlinesWordService
 import com.example.newsapp.internal.util.Constant
-
 import dagger.Module
 import dagger.Provides
 import java.io.File
@@ -14,8 +13,7 @@ import javax.inject.Singleton
 import okhttp3.Cache
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 
 @Module
 internal class NetworkModule {
@@ -39,6 +37,8 @@ internal class NetworkModule {
         CLIENT_CACHE_SIZE
     )
 
+
+
     @Provides
     @Singleton
     internal fun provideLoggingInterceptor(): HttpLoggingInterceptor {
@@ -54,29 +54,11 @@ internal class NetworkModule {
 
     @Provides
     @Singleton
-    fun providesRetrofit(
-        gsonConverterFactory: GsonConverterFactory,
-        rxJava2CallAdapterFactory: RxJava2CallAdapterFactory
-
-    ): Retrofit {
+    fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(Constant.Api.BASE_URL)
-            .addConverterFactory(gsonConverterFactory)
-            .addCallAdapterFactory(rxJava2CallAdapterFactory)
+            .addConverterFactory(MoshiConverterFactory.create())
             .build()
-    }
-
-
-    @Provides
-    @Singleton
-    fun providesGsonConverterFactory(): GsonConverterFactory {
-        return GsonConverterFactory.create()
-    }
-
-    @Provides
-    @Singleton
-    fun providesRxJavaCallAdapterFactory(): RxJava2CallAdapterFactory {
-        return RxJava2CallAdapterFactory.create()
     }
 
 
@@ -94,7 +76,7 @@ internal class NetworkModule {
 
     @Provides
     @Singleton
-    fun providePersonService(retrofit: Retrofit): TopHeadlinesWordService {
+    fun provideTopHeadlinesWordService(retrofit: Retrofit): TopHeadlinesWordService {
         return retrofit.create(TopHeadlinesWordService::class.java)
     }
 

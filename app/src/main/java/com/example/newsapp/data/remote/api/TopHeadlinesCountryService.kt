@@ -14,10 +14,11 @@ interface TopHeadlinesCountryService {
    suspend fun getTopHeadlinesCountry(
         @Query(COUNTRY) country: String,
         @Query(CATEGORY) category: String,
-        @Query(Constant.Api.API_KEY) apiKey: String
+        @Query(API_KEY) apiKey: String
     ): News
     companion object {
         const val COUNTRY = "country"
         const val CATEGORY = "category"
+        const val API_KEY="apiKey"
     }
 }
