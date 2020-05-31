@@ -8,17 +8,17 @@
     <fragment
         android:id="@+id/bottomNavFragment"
         android:name="com.example.newsapp.features.BottomNavFragment"
-        android:label="News"
+        android:label="@string/news_bottom_nav_item_title"
         tools:layout="@layout/fragment_bottom_nav" />
 
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="com.example.newsapp.features.favorite.FavoriteNewsFragment"
-        android:label="FavoriteNews"
+        android:name="com.example.newsapp.features.favorite.FavoritesFragment"
+        android:label="@string/favorite_bottom_nav_item_title"
         tools:layout="@layout/fragment_favorite_news" />
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.newsapp.features.settings.SettingsFragment"
-        android:label="Settings"
+        android:label="@string/settings_bottom_nav_title"
         tools:layout="@layout/fragment_settings" />
 </navigation>

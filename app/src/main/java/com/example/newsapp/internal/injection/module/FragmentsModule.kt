@@ -3,10 +3,10 @@ package com.example.newsapp.internal.injection.module
 
 import com.example.newsapp.features.BottomNavFragment
 import com.example.newsapp.features.BottomNavModule
-import com.example.newsapp.features.favorite.FavoriteNewsFragment
-import com.example.newsapp.features.favorite.FavoriteNewsFragmentModule
-import com.example.newsapp.features.news.HomeFragment
-import com.example.newsapp.features.news.HomeFragmentModule
+import com.example.newsapp.features.favorite.FavoritesFragment
+import com.example.newsapp.features.favorite.FavoritesFragmentModule
+import com.example.newsapp.features.news.NewsFragment
+import com.example.newsapp.features.news.NewsFragmentModule
 import com.example.newsapp.features.settings.SettingsFragment
 import com.example.newsapp.features.settings.SettingsFragmentModule
 import com.example.newsapp.internal.injection.scope.FavoriteNewsScope
@@ -19,12 +19,12 @@ import dagger.android.ContributesAndroidInjector
 internal abstract class FragmentsModule {
 
     @HomeScope
-    @ContributesAndroidInjector(modules = [HomeFragmentModule::class])
-    abstract fun contributeHomeFragment(): HomeFragment
+    @ContributesAndroidInjector(modules = [NewsFragmentModule::class])
+    abstract fun contributeHomeFragment(): NewsFragment
 
     @FavoriteNewsScope
-    @ContributesAndroidInjector(modules = [FavoriteNewsFragmentModule::class])
-    abstract fun contributeFavoriteNewsFragment(): FavoriteNewsFragment
+    @ContributesAndroidInjector(modules = [FavoritesFragmentModule::class])
+    abstract fun contributeFavoriteNewsFragment(): FavoritesFragment
 
     @SettingsScope
     @ContributesAndroidInjector(modules = [SettingsFragmentModule::class])

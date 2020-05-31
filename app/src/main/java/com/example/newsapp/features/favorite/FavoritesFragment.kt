@@ -4,6 +4,6 @@ import com.example.newsapp.R
 import com.example.newsapp.base.BaseFragment
 
 
-class FavoriteNewsFragment: BaseFragment<(FavoriteViewModel)>() {
+class FavoritesFragment: BaseFragment<(FavoritesViewModel)>() {
     override val layoutId = R.layout.fragment_favorite_news
 }

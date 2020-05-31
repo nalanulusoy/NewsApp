@@ -2,19 +2,20 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_secondary"
-    app:startDestination="@id/bottomNavFragmentHome">
+    android:id="@+id/nav_bottom"
+    app:startDestination="@id/bottomNavFragmentNews">
 
     <fragment
-        android:id="@+id/bottomNavFragmentHome"
-        android:name="com.example.newsapp.features.news.HomeFragment"
-        tools:layout="@layout/layout_home_fragment">
+        android:id="@+id/bottomNavFragmentNews"
+        android:name="com.example.newsapp.features.news.NewsFragment"
+        tools:layout="@layout/layout_news_fragment">
+
 
     </fragment>
 
     <fragment
-        android:id="@+id/favoriteFragment"
-        android:name="com.example.newsapp.features.favorite.FavoriteNewsFragment"
+        android:id="@+id/bottomNavFavoriteFragment"
+        android:name="com.example.newsapp.features.favorite.FavoritesFragment"
         tools:layout="@layout/fragment_favorite_news">
 
     </fragment>
@@ -22,7 +23,8 @@
     <fragment
         android:id="@+id/bottomNavFragmentSettings"
         android:name="com.example.newsapp.features.settings.SettingsFragment"
-        tools:layout="@layout/fragment_settings"/>
+        tools:layout="@layout/fragment_settings">
+    </fragment>
 
 
 </navigation>

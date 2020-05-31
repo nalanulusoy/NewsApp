@@ -6,11 +6,11 @@ import com.example.newsapp.R
 import com.example.newsapp.base.BaseFragment
 import androidx.lifecycle.Observer
 import com.example.newsapp.data.remote.model.Articles
-import kotlinx.android.synthetic.main.layout_home_fragment.*
+import kotlinx.android.synthetic.main.layout_news_fragment.*
 
-class HomeFragment : BaseFragment<HomeViewModel>() {
+class NewsFragment : BaseFragment<NewsViewModel>() {
 
-    override val layoutId = R.layout.layout_home_fragment
+    override val layoutId = R.layout.layout_news_fragment
 
     override fun initialize() {
         super.initialize()
@@ -21,7 +21,6 @@ class HomeFragment : BaseFragment<HomeViewModel>() {
             })
         }
     }
-
 
     private fun initRecyclerView(articles: List<Articles>){
         val adapter = ArticlesAdapter(articles)

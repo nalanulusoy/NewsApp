@@ -11,9 +11,7 @@ import com.example.newsapp.domain.TopHeadlinesWordUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class HomeViewModel @Inject constructor( application: Application,private val useCase: TopHeadlinesSourceUseCase):BaseAndroidViewModel(application) {
-
-
+class NewsViewModel @Inject constructor(application: Application, private val useCase: TopHeadlinesSourceUseCase):BaseAndroidViewModel(application) {
 
     val articles = MutableLiveData<List<Articles>>()
     fun fetchTopHeadlinesNews(source:String) {

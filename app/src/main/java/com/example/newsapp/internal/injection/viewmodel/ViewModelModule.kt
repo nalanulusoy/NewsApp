@@ -3,7 +3,7 @@ package com.example.newsapp.internal.injection.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.newsapp.features.main.MainViewModel
-import com.example.newsapp.features.news.HomeViewModel
+import com.example.newsapp.features.news.NewsViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -22,8 +22,8 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(HomeViewModel::class)
-    internal abstract fun bindHomeFragmentViewModel(viewModel: HomeViewModel): ViewModel
+    @ViewModelKey(NewsViewModel::class)
+    internal abstract fun bindHomeFragmentViewModel(viewModel: NewsViewModel): ViewModel
 
 
 }

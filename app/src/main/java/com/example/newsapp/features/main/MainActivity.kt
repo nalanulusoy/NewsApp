@@ -24,6 +24,7 @@ class MainActivity : BaseActivity<(MainViewModel)>() {
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
         // Set up navigation menu
         navigationView.setupWithNavController(navController)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
