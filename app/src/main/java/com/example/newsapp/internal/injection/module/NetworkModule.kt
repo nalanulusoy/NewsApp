@@ -2,6 +2,7 @@ package com.example.newsapp.internal.injection.module
 
 import android.content.Context
 import androidx.databinding.library.BuildConfig
+import com.example.newsapp.data.remote.api.AllSourcesService
 import com.example.newsapp.data.remote.api.TopHeadlinesCountryService
 import com.example.newsapp.data.remote.api.TopHeadlinesSourcesService
 import com.example.newsapp.data.remote.api.TopHeadlinesWordService

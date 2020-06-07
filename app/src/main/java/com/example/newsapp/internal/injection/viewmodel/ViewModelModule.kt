@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.newsapp.features.main.MainViewModel
 import com.example.newsapp.features.news.NewsViewModel
+import com.example.newsapp.features.newsdetail.NewsDetailViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -23,7 +24,11 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(NewsViewModel::class)
-    internal abstract fun bindHomeFragmentViewModel(viewModel: NewsViewModel): ViewModel
+    internal abstract fun bindNewsFragmentViewModel(viewModel: NewsViewModel): ViewModel
 
+    @Binds
+    @IntoMap
+    @ViewModelKey(NewsDetailViewModel::class)
+    internal abstract fun bindNewsDetailFragmentViewModel(viewModel: NewsDetailViewModel): ViewModel
 
 }

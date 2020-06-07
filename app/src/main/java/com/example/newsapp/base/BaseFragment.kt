@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.newsapp.internal.util.functional.lazyThreadSafetyNone
@@ -22,6 +23,7 @@ abstract class BaseFragment<VM : BaseAndroidViewModel> :
     abstract val layoutId: Int
 
     open fun initialize() {}
+    open fun init() {}
 
     @Suppress("UNCHECKED_CAST")
     protected open val viewModel by lazyThreadSafetyNone {
@@ -33,7 +35,9 @@ abstract class BaseFragment<VM : BaseAndroidViewModel> :
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        init()
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -41,9 +45,11 @@ abstract class BaseFragment<VM : BaseAndroidViewModel> :
     ): View? {
 
         initialize()
-
-         return inflater.inflate(layoutId,container,false)
+        return inflater.inflate(layoutId, container, false)
     }
 
+    fun setToolbarTitle(title: String) {
+        (activity as AppCompatActivity).supportActionBar?.title = title
+    }
 
 }

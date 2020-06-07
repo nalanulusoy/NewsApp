@@ -1,5 +1,6 @@
 package com.example.newsapp.base
 
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.newsapp.internal.util.functional.lazyThreadSafetyNone

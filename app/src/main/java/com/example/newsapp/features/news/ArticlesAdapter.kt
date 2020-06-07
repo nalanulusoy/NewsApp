@@ -3,10 +3,14 @@ package com.example.newsapp.features.news
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.NavDirections
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.newsapp.R
 import com.example.newsapp.data.remote.model.Articles
+import com.example.newsapp.data.remote.model.Sources
 import kotlinx.android.synthetic.main.item_articles.view.*
 
 class ArticlesAdapter(private val articlesList: List<Articles>) :
@@ -21,6 +25,11 @@ class ArticlesAdapter(private val articlesList: List<Articles>) :
 
     override fun onBindViewHolder(holder: ArticlesViewHolder, position: Int) {
         holder.bind(articlesList[position])
+        holder.itemView.setOnClickListener { view ->
+            var bundle = bundleOf("newsUrl" to articlesList[position].getUrl())
+                Navigation.findNavController(view)
+                    .navigate(R.id.action_newsDetailFragment_to_bottomNavFragmentNews, bundle)
+        }
     }
 
     inner class ArticlesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -34,4 +43,7 @@ class ArticlesAdapter(private val articlesList: List<Articles>) :
             }
         }
     }
+
 }
+
+

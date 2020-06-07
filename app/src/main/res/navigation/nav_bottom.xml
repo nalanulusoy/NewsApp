@@ -9,8 +9,13 @@
         android:id="@+id/bottomNavFragmentNews"
         android:name="com.example.newsapp.features.news.NewsFragment"
         tools:layout="@layout/layout_news_fragment">
-
-
+        <argument
+            android:name="newsUrl"
+            app:argType="string"
+            />
+        <action
+            android:id="@+id/action_newsDetailFragment_to_bottomNavFragmentNews"
+            app:destination="@id/newsDetailFragment" />
     </fragment>
 
     <fragment
@@ -20,6 +25,11 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="com.example.newsapp.features.newsdetail.NewsDetailFragment"
+        android:label="NewsDetailFragment" >
+    </fragment>
     <fragment
         android:id="@+id/bottomNavFragmentSettings"
         android:name="com.example.newsapp.features.settings.SettingsFragment"
